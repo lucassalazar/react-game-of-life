@@ -76,7 +76,7 @@ function App() {
 
   return (
     <div className="main-container">
-      <div className="mx-auto min-w-[10ch] max-w-[35ch]">
+      <div className="mx-auto min-w-[23ch] max-w-[23ch]">
         <h1 className="bold mb-5 mt-5 text-7xl">👾</h1>
         <h1 className="bold mb-5 text-4xl">Game of Life</h1>
         <InputRange
