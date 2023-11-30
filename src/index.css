@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0.25rem;
+    box-sizing: border-box;
+  }
+
+  body {
+    @apply bg-neutral-800;
+    color: whitesmoke;
+    place-content: center;
+    font-size: 150%;
+    font-family: "Roboto";
+  }
+}
+
+@layer components {
+  .main-container {
+    @apply flex min-h-full flex-col items-center justify-start;
+  }
+
+  .grid {
+    @apply h-full w-full;
+  }
+}
+
+@layer utilities {
+}
