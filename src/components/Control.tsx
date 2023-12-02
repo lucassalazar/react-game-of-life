@@ -57,10 +57,10 @@ export default function Control({
 
   return (
     <div>
-      <label className="mb-2 block text-base font-medium text-white">
+      <label className="p-0 mb-2 block text-base font-medium text-white">
         Generation: {generation}
       </label>
-      <div>
+      <div className="p-0">
         <button
           className="mr-2 bg-[#553986e0] px-5 py-2 text-lg shadow-lg hover:bg-[#553986]"
           onClick={updateGeneration}

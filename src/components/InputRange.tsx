@@ -15,7 +15,7 @@ export default function InputRange({
 }: InputRangeProps) {
   return (
     <div className="mb-5">
-      <label className="mb-0 block appearance-none overflow-hidden text-base font-medium text-white">
+      <label className="p-0 mb-0 block appearance-none overflow-hidden text-base font-medium text-white">
         Grid size: {gridSize}
       </label>
       <input
