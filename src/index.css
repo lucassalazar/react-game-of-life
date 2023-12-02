@@ -1,8 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 
 @layer base {
   * {
@@ -25,8 +24,32 @@
     @apply flex min-h-full flex-col items-center justify-start;
   }
 
+  .grid-container {
+    @apply overflow-hidden max-h-80;
+  }
+
   .grid {
     @apply h-full w-full;
+  }
+
+  .slider-thumb::-webkit-slider-thumb {
+    width: 15px;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 15px;
+    cursor: ew-resize;
+    background: #fff;
+    border-radius: 50%;
+  }
+
+  .slider-thumb::-moz-range-thumb {
+    width: 15px;
+    -moz-appearance: none;
+    appearance: none;
+    height: 15px;
+    cursor: ew-resize;
+    background: #fff;
+    border-radius: 50%;
   }
 }
 

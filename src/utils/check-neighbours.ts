@@ -5,7 +5,7 @@ type NeighbourPositions = Record<string, [number, number]>;
 export const checkNeighbours = (
   x: number,
   y: number,
-  grid: GridType
+  grid: GridType,
 ): number => {
   const neighbourPositions: NeighbourPositions = {
     top: [-1, 0],

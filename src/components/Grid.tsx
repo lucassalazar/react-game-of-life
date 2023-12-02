@@ -33,22 +33,24 @@ function Grid({ grid, gridSize, setGrid }: GridProps) {
   }, []);
 
   return (
-    <table className="grid" ref={parentRef}>
-      <tbody>
-        {grid.map((row: BinaryValue[], index: number) => {
-          return (
-            <Row
-              row={row}
-              rowIndex={index}
-              gridSize={gridSize}
-              setGrid={setGrid}
-              gridWidth={gridWidth}
-              key={index}
-            />
-          );
-        })}
-      </tbody>
-    </table>
+    <div className="grid-container">
+      <table className="grid" ref={parentRef}>
+        <tbody>
+          {grid.map((row: BinaryValue[], index: number) => {
+            return (
+              <Row
+                row={row}
+                rowIndex={index}
+                gridSize={gridSize}
+                setGrid={setGrid}
+                gridWidth={gridWidth}
+                key={index}
+              />
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
   );
 }
 
