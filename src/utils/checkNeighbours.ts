@@ -1,4 +1,4 @@
-import { GridType } from "../components/Grid";
+import { GridType } from "../types/gridTypes";
 
 type NeighbourPositions = Record<string, [number, number]>;
 
