@@ -2,7 +2,7 @@ import { ChangeEvent, useCallback, useState, useMemo, useEffect } from "react";
 import Grid from "./components/Grid";
 import InputRange from "./components/InputRange";
 import Control from "./components/Control";
-import { checkNeighbours } from "./utils/check-neighbours";
+import { checkNeighbours } from "./utils/checkNeighbours";
 import { GridType, BinaryValue } from "./types/gridTypes";
 import { GridContext } from "./context/gridContext";
 import { ControlContext } from "./context/controlContext";
