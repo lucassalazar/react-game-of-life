@@ -1,22 +1,13 @@
-import { Dispatch, SetStateAction } from "react";
-import { BinaryValue, GridType } from "./Grid";
+import { BinaryValue } from "../types/gridTypes";
 import Cell from "./Cell";
 
 interface RowProps {
   row: BinaryValue[];
   rowIndex: number;
-  gridSize: number;
-  setGrid: Dispatch<SetStateAction<GridType>>;
   gridWidth: number;
 }
 
-export default function Row({
-  row,
-  rowIndex,
-  gridSize,
-  setGrid,
-  gridWidth,
-}: RowProps) {
+export default function Row({ row, rowIndex, gridWidth }: RowProps) {
   return (
     <tr id={`${rowIndex}`}>
       {row.map((cellValue: BinaryValue, index: number) => {
@@ -24,8 +15,6 @@ export default function Row({
           <Cell
             rowIndex={rowIndex}
             cellIndex={index}
-            gridSize={gridSize}
-            setGrid={setGrid}
             gridWidth={gridWidth}
             key={`${rowIndex}-${index}`}
           >

@@ -1,21 +1,22 @@
 import { ChangeEvent } from "react";
+import { useGridContext } from "../hooks/useGridContext";
 
 interface InputRangeProps {
-  gridSize: number;
   min: number;
   max: number;
   updateGridSize: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
 export default function InputRange({
-  gridSize,
   min,
   max,
   updateGridSize,
 }: InputRangeProps) {
+  const { gridSize } = useGridContext();
+
   return (
     <div className="mb-5">
-      <label className="p-0 mb-0 block appearance-none overflow-hidden text-base font-medium text-white">
+      <label className="mb-0 block appearance-none overflow-hidden p-0 text-base font-medium text-white">
         Grid size: {gridSize}
       </label>
       <input

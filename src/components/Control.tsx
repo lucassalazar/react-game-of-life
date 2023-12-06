@@ -1,18 +1,13 @@
 import { useState, useEffect, useCallback } from "react";
+import { useGridContext } from "../hooks/useGridContext";
+import { useControlContext } from "../hooks/useControlContext";
 
-interface ControlProps {
-  gridSize: number;
-  generation: number;
-  updateGeneration: () => void;
-  restartGeneration: () => void;
-}
+interface ControlProps {}
 
-export default function Control({
-  gridSize,
-  generation,
-  updateGeneration,
-  restartGeneration,
-}: ControlProps) {
+export default function Control({}: ControlProps) {
+  const { generation, updateGeneration, restartGeneration } =
+    useControlContext();
+  const { gridSize } = useGridContext();
   const [isPlaying, setIsPlaying] = useState(false);
 
   useEffect(() => {
@@ -57,7 +52,7 @@ export default function Control({
 
   return (
     <div>
-      <label className="p-0 mb-2 block text-base font-medium text-white">
+      <label className="mb-2 block p-0 text-base font-medium text-white">
         Generation: {generation}
       </label>
       <div className="p-0">

@@ -1,11 +1,10 @@
-import { memo, Dispatch, SetStateAction, ReactNode } from "react";
-import { GridType } from "./Grid";
+import { memo, ReactNode } from "react";
+import { useGridContext } from "../hooks/useGridContext";
+import { GridType } from "../types/gridTypes";
 
 interface CellProps {
   rowIndex: number;
   cellIndex: number;
-  gridSize: number;
-  setGrid: Dispatch<SetStateAction<GridType>>;
   gridWidth: number;
   children: ReactNode;
 }
@@ -13,12 +12,12 @@ interface CellProps {
 const Cell = memo(function Cell({
   rowIndex,
   cellIndex,
-  gridSize,
-  setGrid,
   gridWidth,
   children,
 }: CellProps) {
   console.log(`Cell: (${rowIndex}, ${cellIndex})`);
+
+  const { gridSize, setGrid } = useGridContext();
 
   const cellSize = gridWidth / gridSize;
 

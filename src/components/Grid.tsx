@@ -1,17 +1,13 @@
-import { useState, useRef, Dispatch, SetStateAction, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
+import { BinaryValue } from "../types/gridTypes";
 import Row from "./Row";
+import { useGridContext } from "../hooks/useGridContext";
 
-export type BinaryValue = 0 | 1;
+interface GridProps {}
 
-export type GridType = BinaryValue[][];
+function Grid({}: GridProps) {
+  const { grid } = useGridContext();
 
-interface GridProps {
-  grid: GridType;
-  gridSize: number;
-  setGrid: Dispatch<SetStateAction<GridType>>;
-}
-
-function Grid({ grid, gridSize, setGrid }: GridProps) {
   const [gridWidth, setGridWidth] = useState(0);
   const parentRef = useRef<HTMLTableElement>(null);
 
@@ -41,8 +37,6 @@ function Grid({ grid, gridSize, setGrid }: GridProps) {
               <Row
                 row={row}
                 rowIndex={index}
-                gridSize={gridSize}
-                setGrid={setGrid}
                 gridWidth={gridWidth}
                 key={index}
               />

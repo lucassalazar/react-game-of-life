@@ -3,7 +3,9 @@ import Grid from "./components/Grid";
 import InputRange from "./components/InputRange";
 import Control from "./components/Control";
 import { checkNeighbours } from "./utils/check-neighbours";
-import { GridType, BinaryValue } from "./components/Grid";
+import { GridType, BinaryValue } from "./types/gridTypes";
+import { GridContext } from "./context/gridContext";
+import { ControlContext } from "./context/controlContext";
 
 function App() {
   const [gridSize, setGridSize] = useState(15);
@@ -77,21 +79,17 @@ function App() {
   return (
     <div className="main-container">
       <div className="mx-auto min-w-[23ch] max-w-[23ch]">
-        <h1 className="p-0 bold mb-5 mt-5 text-7xl">👾</h1>
-        <h1 className="p-0 bold mb-5 text-4xl">Game of Life</h1>
-        <InputRange
-          min={5}
-          max={20}
-          updateGridSize={updateGridSize}
-          gridSize={gridSize}
-        />
-        <Grid grid={grid} gridSize={gridSize} setGrid={setGrid} />
-        <Control
-          gridSize={gridSize}
-          generation={generation}
-          updateGeneration={updateGeneration}
-          restartGeneration={restartGeneration}
-        />
+        <h1 className="bold mb-5 mt-5 p-0 text-7xl">👾</h1>
+        <h1 className="bold mb-5 p-0 text-4xl">Game of Life</h1>
+        <GridContext.Provider value={{ grid, gridSize, setGrid }}>
+          <InputRange min={5} max={20} updateGridSize={updateGridSize} />
+          <Grid />
+          <ControlContext.Provider
+            value={{ generation, updateGeneration, restartGeneration }}
+          >
+            <Control />
+          </ControlContext.Provider>
+        </GridContext.Provider>
       </div>
     </div>
   );
